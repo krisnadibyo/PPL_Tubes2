@@ -4,6 +4,30 @@
     <style type="text/css" media="all">
       
     </style>
+	<script>
+	function loadDoc()
+	{
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();		
+		  }
+		else
+		  {// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		  }
+		 xmlhttp.onreadystatechange=function()
+		  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			{
+				document.getElementById("document").innerHTML=xmlhttp.responseText;
+			}
+	  }
+	xmlhttp.open("GET","ListWebsite.txt",true);
+	xmlhttp.send();
+	}
+	</script>
+	
   </head>
  
 <body>
@@ -11,7 +35,11 @@
 	<p>Add link  : </p>	
 	 <input  id="add_link : " type="text" >
 	 <p> Delete link : </p>
-	 <input  id="delete_link : " type="text" >
+	 <div id="document"> </div>
+	 <script>
+		var myVar=loadDoc();
+	 </script>
+	 
   </body>
  
 </html>

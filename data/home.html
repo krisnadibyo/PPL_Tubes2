@@ -5,6 +5,7 @@
       
     </style>
 	<script>
+	var list_link; 
 	function loadDoc()
 	{
 		var xmlhttp;
@@ -21,8 +22,9 @@
 		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			{
 				var strings = xmlhttp.responseText;
-				var splits = strings.split(";");
-				addDropDown(splits);
+				list_link = strings.split(";");
+			
+				addDropDown(list_link);
 			}
 	  }
 	xmlhttp.open("GET","ListWebsite.txt",true);
@@ -39,6 +41,29 @@
 		}
 	}
 	
+	function deleteDropdownList() {
+		document.getElementById("trigger").options.length = 0;
+	}
+	
+	function deleteLink() {
+		var  dropdown = document.getElementById("trigger");
+		var  selecteditem = dropdown.options[dropdown.selectedIndex].value;
+		
+		var  k = 0;
+		var list_link_temp = new Array();
+		for (var i=0; i < list_link.length;  i++) {
+			if (list_link[i] != selecteditem) {
+				list_link_temp[k] = list_link[i];
+				k++;
+			}
+		}
+		list_link = new Array();
+		list_link = list_link_temp;
+		deleteDropdownList();
+		addDropDown(list_link);
+	}
+	
+	
 	var myVar=loadDoc();
 	</script>
 	
@@ -54,7 +79,7 @@
 	 <fieldset >
 		<legend>Delete Filter Link</legend>
 					<select id="trigger"></select>
-					<button id="add_button"  type="button">Delete</button>
+					<button id="add_button"  onclick="deleteLink()" >Delete</button>
 	  </fieldset>
 	 
   </body>

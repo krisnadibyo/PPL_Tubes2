@@ -20,25 +20,42 @@
 		  {
 		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			{
-				document.getElementById("document").innerHTML=xmlhttp.responseText;
+				var strings = xmlhttp.responseText;
+				var splits = strings.split(";");
+				addDropDown(splits);
 			}
 	  }
 	xmlhttp.open("GET","ListWebsite.txt",true);
 	xmlhttp.send();
 	}
+	function addDropDown(val) {
+		var sel = document.getElementById('trigger');
+		for (var  i = 0; i < val.length; i++) {
+			var opt = document.createElement('option');
+			var each = val[i];
+			opt.innerHTML = each;
+			opt.value = each;
+			sel.appendChild(opt);
+		}
+	}
+	
+	var myVar=loadDoc();
 	</script>
 	
   </head>
  
-<body>
+<body style="background-color:#999999;">
 	<h1> Welcome to Susdulu 3 "no ads no worries" extension</h1>	
-	<p>Add link  : </p>	
-	 <input  id="add_link : " type="text" >
-	 <p> Delete link : </p>
-	 <div id="document"> </div>
-	 <script>
-		var myVar=loadDoc();
-	 </script>
+	<fieldset >
+		<legend>Add Filter Link </legend>
+		 <input  id="add_link : " type="text" >
+		 <button id="add_button"  type="button">Add</button>
+	</fieldset>
+	 <fieldset >
+		<legend>Delete Filter Link</legend>
+					<select id="trigger"></select>
+					<button id="add_button"  type="button">Delete</button>
+	  </fieldset>
 	 
   </body>
  

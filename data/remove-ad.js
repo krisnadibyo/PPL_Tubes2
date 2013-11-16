@@ -1,20 +1,17 @@
-console.log("masuk remove ad");
-
 self.port.on("findElmt", function(ban){
-    console.log('findElmt notif');
+    console.log('ban: '+ban);
     
     var all = document.getElementsByTagName("*");
     var max = all.length;
-    console.log('length: '+all.length);
-    
+//    console.log('length: '+all.length);  
     
 //    penghitungan all.length hanya dilakukan sekali
     for(var i=0; i<max; i++)
     {
 /*        console.log('elemen: '+all[i].innerHTML);*/
-        console.log('attribute length: '+all[i].attributes.length);
+//        console.log('attribute length: '+all[i].attributes.length);
         
-        if(all[i].attributes.length != 0)
+        if(all[i].attributes.length != 0)   
 		{
             var attrs=all[i].attributes;
             var l=attrs.length;
@@ -27,15 +24,21 @@ self.port.on("findElmt", function(ban){
                 if(attr.nodeName != null)
                 {
                     nodes.push(attr.nodeName);
-                    console.log('NodeName: '+attr.nodeName);
+//                    console.log('NodeName: '+attr.nodeName);                  
+                    if(attr.nodeValue != null)
+                    {
+                        values.push(attr.nodeValue);
+                        
+                        if(attr.nodeName == 'href') console.log(attr.nodeName+'='+attr.nodeValue);
+                        
+//                        contoh satu link advertisement
+                        if(attr.nodeValue == ban)
+                        {
+                            console.log('cocok');
+                            all[i].style.visibility = 'hidden';
+                        }
+                    }
                 }
-                if(attr.nodeValue != null)
-                {
-                    values.push(attr.nodeValue);
-                    console.log('NodeValue: '+attr.nodeValue);
-                }
-                
-//                jika NodeValue termasuk dalam daftar url, hapus parent element
             }
         }
     }

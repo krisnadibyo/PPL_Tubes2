@@ -8,6 +8,8 @@ self.port.on("findElmt", function(ban){
     adList.push("http://es.mangahere.com");
     adList.push("http://the3dgame.com/most-popular/?nxc=MFBANNER");
     adList.push("http://funnymama.com");
+    adList.push("http://lax1.ib.adnxs.com");
+    adList.push("http://ad.doubleclick.net");
     
     var all = document.getElementsByTagName("*");
     var max = all.length;

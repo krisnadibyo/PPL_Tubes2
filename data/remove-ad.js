@@ -27,6 +27,7 @@ self.port.on("findElmt", function(ban){
             for (var j=0; j<l; j++)
             {
                 attr = attrs.item(j);
+				console.log('attr = '+attr);
                 if(attr.nodeName != null)
                 {
                     if(attr.nodeValue != null)
@@ -34,7 +35,7 @@ self.port.on("findElmt", function(ban){
 //                        hilangkan tiap ad dari adList
                         for(var k=0; k<adList.length; k++)
                         {
-                            if(attr.nodeValue.indexOf(adList[k]) !== -1)
+                            if(attr.nodeValue.indexOf(adList[k]) !=== -1)
                             {
                                 console.log('cocok '+adList[k]);
 //                                all[i].style.visibility = 'hidden';

@@ -22,7 +22,6 @@ $(document).ready(function() {
 		var pattern_list = new Array();
 		var attrVal = $(element).attr(attr_name);
 		if (mode === "link") {
-			
 			pattern_list=Link_List;
 		}
 		else {
@@ -51,9 +50,7 @@ $(document).ready(function() {
     $('iframe').each(function(index) {
        remove_Ads(this, 'name', 'content');
        remove_Ads(this, 'id', 'content');
-    });
-	
-	
+    });	
 });
 
 

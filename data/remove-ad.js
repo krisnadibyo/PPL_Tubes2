@@ -44,7 +44,6 @@ self.port.on("findElmt", function(ban){
                     {
                         if(attr.nodeValue.indexOf(adList[k]) !== -1)
                         {
-                            
                             console.log('cocok '+adList[k]);
 //                            all[i].style.visibility = 'hidden !important';
                             all[i].style.display = 'none';

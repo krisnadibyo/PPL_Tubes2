@@ -19,8 +19,7 @@ self.port.on("show", function (arg) {
   button.onclick = function(event) {
 		deleteLink();
 		self.port.emit("updateLink", link_ads);
-  }
-  
+  }  
 });
 
 function deleteLink() {
@@ -57,6 +56,3 @@ function updateDropDown(val) {
 function clearDropDown() {
 	document.getElementById("select_link").options.length = 0;
 }
-
-	
-	

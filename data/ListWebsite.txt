@@ -1,1 +1,11 @@
-mangafox.com;mangareader.net;youtube.com;ebook3000.com;tripadvisor.com;kulinerbdg.com;sourceforge.net;beemp3s.org;gamasutra.com;zamzar.com
+mangafox.com;
+mangareader.net;
+youtube.com;
+ebook3000.com;
+tripadvisor.com;
+
+kulinerbdg.com;
+sourceforge.net;
+beemp3s.org;
+gamasutra.com;
+zamzar.com

@@ -1,4 +1,4 @@
-    var list_link; 
+  
 	
 	function loadDoc()
 	{

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	console.log("masuk");
 	var Link_List = new Array(
 		'ad.doubleclick.net',
         'adclick.g.doubleclick.net',
@@ -10,12 +11,17 @@ $(document).ready(function() {
         'mgid.com',
 		'the3dgame.com',
 		'funnymama.com',
-		'es.mangahere.com'
+		'es.mangahere.com',
+		'osengmercon.com',
+		'kulinerbdg.com',
+		'cdn.fastclick.net',
+		'media.fastclick.net'
 	);
 	
 	var Content_List = new Array(
 	  'ads',
       'advertisement'
+	  'background-image: url'
 	);
 
 	function remove_Ads(element,attr_name,mode) {

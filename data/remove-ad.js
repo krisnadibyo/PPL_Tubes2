@@ -1,55 +1,62 @@
-console.log('masuk removeAD');
-self.port.on("findElmt", function(ban){
-/*    membaca file daftar URL yang harus diantisipasi*/
+/*
+    list ada variabel dari main.js
+    list berisi daftar situs yang perlu diantisipasi
+*/
+self.port.on("findElmt", function(list){
     var adList = new Array();
-    adList.push("http://go.game321.com/mgf_gv.htm");
-    adList.push("http://www.googleadservices.com");
-    adList.push("http://googleads.g.doubleclick.net");
-    adList.push("http://es.mangahere.com");
-    adList.push("http://the3dgame.com/most-popular/?nxc=MFBANNER");
-    adList.push("http://funnymama.com");
-    adList.push("http://lax1.ib.adnxs.com");
-    adList.push("http://ad.doubleclick.net");
-    adList.push("http://www.adcash.com");
-    adList.push("http://mgid.com");
-    adList.push("http://r.turn.com");
-    adList.push("http://ds.serving-sys.com");
     
-    console.log('panjang array: '+adList.length);
+    adList = list;
+    adList.push("go.game321.com");
+    adList.push("www.googleadservices.com");
+    adList.push("googleads.g.doubleclick.net");
+    adList.push("es.mangahere.com");
+    adList.push("the3dgame.com");
+    adList.push("funnymama.com");
+    adList.push("lax1.ib.adnxs.com");
+    adList.push("ad.doubleclick.net");
+    adList.push("www.adcash.com");
+    adList.push("mgid.com");
+    adList.push("r.turn.com");
+    adList.push("ds.serving-sys.com");
+    adList.push("adclick.g.doubleclick.net");
+    adList.push("a.tribalfusion.com");
+    adList.push("cdnx.tribalfusion.com");
+    adList.push("ads.yahoo.com");
+    adList.push("www.allvoices.com");
     
     var all = document.getElementsByTagName("*");
-    var max = all.length;
-//    console.log('length: '+all.length);  
+    var max = all.length; 
     
-//    penghitungan all.length hanya dilakukan sekali
     for(var i=0; i<max; i++)
-    {        
-        if(all[i].attributes.length != 0)   
+    {
+        var curNode = all[i];
+        if(curNode.attributes.length != 0)
 		{
-            var attrs=all[i].attributes;
+            var attrs=curNode.attributes;
             var l=attrs.length;
-            var attr;
-//            ambil seluruh atribut element
             for (var j=0; j<l; j++)
             {
-                attr = attrs.item(j);
+                var attr = attrs.item(j);
                 if(attr.specified)
                 {
-                    if(attr.nodeName == 'href')
-                    {
-                        console.log("href="+attr.nodeValue);
-                    }
-//                    hilangkan tiap ad dari adList
                     for(var k=0; k<adList.length; k++)
                     {
-                        if(attr.nodeValue.indexOf(adList[k]) !== -1)
+                        if((attr.nodeValue.indexOf(adList[k]) !== -1))
                         {
-                            console.log('cocok '+adList[k]);
-//                            all[i].style.visibility = 'hidden !important';
-                            all[i].style.display = 'none';
-//                            all[i].parentNode.removeChild(all[i]);
-//                            all[i].parentNode.style.display = 'none';
-                            break;
+                            if(curNode.parentNode.nodeName.toLowerCase() !== 'body')
+                            {
+                                curNode.style.display = 'none';
+                                curNode.parentNode.style.display = 'none';
+                                break;
+                            }
+                            else
+                            {
+                                curNode.style.display = 'none';
+                            }
+                        }                     
+                        if(attr.nodeValue.indexOf("ad") === 0)
+                        {
+                            curNode.style.display = 'none';
                         }
                     }
                 }

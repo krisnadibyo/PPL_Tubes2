@@ -5,25 +5,26 @@
 self.port.on("findElmt", function(list){
     var adList = new Array();
     
-    adList = list;
-    adList.push("go.game321.com");
-    adList.push("www.googleadservices.com");
-    adList.push("googleads.g.doubleclick.net");
-    adList.push("es.mangahere.com");
-    adList.push("the3dgame.com");
-    adList.push("funnymama.com");
-    adList.push("lax1.ib.adnxs.com");
-    adList.push("ad.doubleclick.net");
-    adList.push("www.adcash.com");
-    adList.push("mgid.com");
-    adList.push("r.turn.com");
-    adList.push("ds.serving-sys.com");
-    adList.push("adclick.g.doubleclick.net");
-    adList.push("a.tribalfusion.com");
-    adList.push("cdnx.tribalfusion.com");
-    adList.push("ads.yahoo.com");
-    adList.push("www.allvoices.com");
-    
+    adList = list; /*
+	if (list.length == 0) {
+		adList.push("go.game321.com");
+		adList.push("www.googleadservices.com");
+		adList.push("googleads.g.doubleclick.net");
+		adList.push("es.mangahere.com");
+		adList.push("the3dgame.com");
+		adList.push("funnymama.com");
+		adList.push("lax1.ib.adnxs.com");
+		adList.push("ad.doubleclick.net");
+		adList.push("www.adcash.com");
+		adList.push("mgid.com");
+		adList.push("r.turn.com");
+		adList.push("ds.serving-sys.com");
+		adList.push("adclick.g.doubleclick.net");
+		adList.push("a.tribalfusion.com");
+		adList.push("cdnx.tribalfusion.com");
+		adList.push("ads.yahoo.com");
+		adList.push("www.allvoices.com");
+    } */
     var all = document.getElementsByTagName("*");
     var max = all.length; 
     

@@ -7,7 +7,10 @@ $(document).ready(function() {
         'a.tribalfusion.com',
         'cdnx.tribalfusion.com/media',
         'go.game321.com',
-        'mgid.com'
+        'mgid.com',
+		'the3dgame.com',
+		'funnymama.com',
+		'es.mangahere.com'
 	);
 	
 	var Content_List = new Array(
@@ -19,7 +22,6 @@ $(document).ready(function() {
 		var pattern_list = new Array();
 		var attrVal = $(element).attr(attr_name);
 		if (mode === "link") {
-			
 			pattern_list=Link_List;
 		}
 		else {
@@ -33,7 +35,6 @@ $(document).ready(function() {
 			}
 		}
 	}
-	
     $('a').each(function(index) {
         remove_Ads(this, 'href','link');
     });
@@ -49,9 +50,7 @@ $(document).ready(function() {
     $('iframe').each(function(index) {
        remove_Ads(this, 'name', 'content');
        remove_Ads(this, 'id', 'content');
-    });
-	
-	
+    });	
 });
 
 
